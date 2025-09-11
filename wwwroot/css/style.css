@@ -16,6 +16,12 @@
     --main-color: red;
     --main-transition: 0.3s;
 }
+.dark-mode {
+    --bg-color: white;
+    --text-color: black;
+    --second-color: white;
+    --main-transition: 0.3s;
+}
 
 html {
     font-size: 60%;
@@ -41,6 +47,7 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     overflow: hidden;
+    --main-transition: 0.3s;
 }
 
 .header {
@@ -49,7 +56,7 @@ body {
     left: 0;
     width: 100%;
     padding: 2rem 6% 2rem;
-    background: #080808;
+    background: var(--bg-color);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -253,11 +260,14 @@ span {
     font-size: 8rem;
     text-align: center;
     margin: 5rem 0;
+    color: var(--text-color);
 }
 
 .education {
     padding: 100px 15px;
     background: var(--second-color);
+    color: var(--text-color);
+    transition: all var(--main-transition) ease;
 }
 
     .education h2 {
@@ -308,7 +318,7 @@ span {
 .timeline-data {
     font-size: 20px;
     font-weight: 800;
-    color: white;
+    color: var(--text-color);
     margin: 6px 0 15px;
 }
 
@@ -329,13 +339,13 @@ span {
 
     .timeline-content h3 {
         font-size: 20px;
-        color: white;
+        color: var(--text-color);
         margin: 0 0 10px;
         font-weight: 500;
     }
 
     .timeline-content p {
-        color: white;
+        color: var(--text-color);
         font-size: 16px;
         font-weight: 300;
         line-height: 22px;
@@ -344,6 +354,8 @@ span {
 
 .skills {
     background: var(--bg-color);
+    color: var(--text-color);
+    transition: all var(--main-transition) ease;
 }
 
 .skill-main {
@@ -352,6 +364,7 @@ span {
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 30px;
     grid-column-gap: 50px;
+
 }
 
 .skill-bar {
@@ -382,55 +395,62 @@ span {
     border-radius: 25px;
     margin-top: 10px;
     position: relative;
+    overflow: hidden;
 }
 
-
 .skill-bar .bar span {
-    width: 50%;
+    width: 0;
     height: 100%;
     position: absolute;
     left: 0;
-    background-color: var(--main-color);
     border-radius: 25px;
     box-shadow: 0 0 10px var(--main-color);
+    animation-fill-mode: forwards;
 }
 
+/* Individual skills */
 .skill-bar .bar .htmlcss {
-    width: 95%;
-    animation: html 2s;
+    background-color: var(--main-color);
+    animation: html 3s forwards;
 }
 
 .skill-bar .bar .js {
-    width: 70%;
-    animation: css 3s;
+    background-color: var(--main-color);
+    animation: js 3s forwards;
+}
+.skill-bar .bar .Database {
+    background-color: var(--main-color);
+    animation: DB 3s forwards;
 }
 
 .skill-bar .bar .Csharp {
-    width: 90%;
-    animation: js 4s;
+    background-color: var(--main-color);
+    animation: csharp 3s forwards;
 }
 
 .skill-bar .bar .NETMVC {
-    width: 95%;
-    animation: c 5s;
+    background-color: var(--main-color);
+    animation: netmvc 3s forwards;
 }
 
 .skill-bar .bar .NETCoreWebApi {
-    width: 95%;
-    animation: cpp 6s;
+    background-color: var(--main-color);
+    animation: netcore 3s forwards;
 }
+
 .skill-bar .bar .Cplus {
-    width: 85%;
-    animation: cpp 6s;
+    background-color: var(--main-color);
+    animation: cpp 3s forwards;
 }
+
 .skill-bar .bar .Java {
-    width: 90%;
-    animation: cpp 6s;
+    background-color: var(--main-color);
+    animation: java 3s forwards;
 }
 
 .skill-bar .bar .Python {
-    width: 75%;
-    animation: python 7s;
+    background-color: var(--main-color);
+    animation: python 3s forwards;
 }
 
 .porfessional {
@@ -442,11 +462,12 @@ span {
         position: relative;
         margin: 10px 0;
         flex: 1 1 15rem;
+        color: var(--text-color);
     }
 
         .porfessional .box .text {
             text-align: center;
-            color: #fff;
+            color: var(--text-color);
             font-size: 2rem;
             margin-top: 7rem;
         }
@@ -458,11 +479,13 @@ span {
                 top: 55%;
                 left: 51%;
                 transform: translate(-50%, -50%);
+                color: var(--text-color);
             }
 
             .porfessional .box .text small {
                 display: block;
                 font-weight: 600;
+                color: var(--text-color);
             }
 
     .porfessional .circle {
@@ -493,6 +516,8 @@ span {
 .certificates {
     background: var(--second-color);
     position: relative;
+    color: var(--text-color);
+    transition: all var(--main-transition) ease;
 }
 
     .certificates .container {
@@ -594,7 +619,7 @@ span {
 
     .projects h2 {
         margin-bottom: 5rem;
-        color: white;
+        color: var(--text-color);
     }
 
     .projects .project-container {
@@ -718,13 +743,14 @@ span {
 
 .services {
     background: var(--second-color);
-    color: black;
+    color: var(--text-color);
+    transition: all var(--main-transition) ease;
     padding: 2rem;
 }
 
     .services h2 {
         margin-bottom: 5rem;
-        color: white;
+        color: var(--text-color);
     }
 
 .services-container {
@@ -777,7 +803,7 @@ span {
 }
 
 .service-info p {
-    color: white;
+    color: var(--text-color);
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.7;
@@ -989,11 +1015,13 @@ span {
 
 .contact {
     background-color: var(--second-color);
+    color: var(--text-color);
+    transition: all var(--main-transition) ease;
 }
 
     .contact h2 {
         margin-bottom: 3rem;
-        color: white;
+        color: var(--text-color);
     }
 
     .contact form {
@@ -1034,6 +1062,8 @@ span {
     width: 100%;
     padding: 40px 0;
     background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all var(--main-transition) ease;
 }
 
     .footer .social {
@@ -1073,7 +1103,7 @@ span {
     }
 
         .footer ul li a {
-            color: white;
+            color: var(--text-color);
             border-bottom: 3px solid transparent;
             transition: 0.3s ease-in-out;
         }
@@ -1091,7 +1121,7 @@ span {
         margin-top: 50px;
         text-align: center;
         font-size: 16px;
-        color: white;
+        color: var(--text-color);
     }
 
 @media (max-width:1285px) {
@@ -1144,7 +1174,7 @@ span {
             display: block;
             font-size: 2rem;
             margin: 3rem 0;
-            color: white;
+            color: var(--text-color);
         }
 
     header {
@@ -1380,61 +1410,90 @@ span {
 
 @keyframes html {
     from {
-        width: 0;
+        width: 0
     }
 
     to {
-        width: 95%;
-    }
-}
-
-@keyframes css {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 70%;
+        width: 95%
     }
 }
 
 @keyframes js {
     from {
-        width: 0;
+        width: 0
     }
 
     to {
-        width: 90%;
+        width: 70%
     }
 }
 
-@keyframes c {
+@keyframes csharp {
     from {
-        width: 0;
+        width: 0
     }
 
     to {
-        width: 95%;
+        width: 90%
+    }
+}
+@keyframes DB {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 95%
+    }
+}
+
+@keyframes netmvc {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 95%
+    }
+}
+
+@keyframes netcore {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 95%
     }
 }
 
 @keyframes cpp {
     from {
-        width: 0;
+        width: 0
     }
 
     to {
-        width: 85%;
+        width: 85%
+    }
+}
+
+@keyframes java {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 90%
     }
 }
 
 @keyframes python {
     from {
-        width: 0;
+        width: 0
     }
 
     to {
-        width: 75%;
+        width: 75%
     }
 }
 

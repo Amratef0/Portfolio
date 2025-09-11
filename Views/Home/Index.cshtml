@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
@@ -16,6 +17,7 @@
         <a style="text-decoration:none;" asp-action="Index" class="logo"><span> Amr Atef</span></a>
         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
+            <button id="btnnnn" style="background: none; border: none; cursor: pointer; font-size: 24px;"><i class="fa-solid fa-sun" style="color: #FFD700;"></i></button>
             <a style="text-decoration:none;" href="#home" class="active">Home</a>
             <a style="text-decoration:none;" href="#education">Education</a>
             <a style="text-decoration:none;" href="#skills">Skills</a>
@@ -43,9 +45,11 @@
                 <a style="text-decoration:none;" target="_blank" href="https://github.com/Amratef0"><i class='bx bxl-github'></i></a>
             </div>
 
-            <div class="btn-group">
+            <div class="btn-group" style="display: flex; gap: 10px;">
                 <a style="text-decoration:none;" href="#contact" class="btn">Contact</a>
+                <a style="text-decoration:none;" href="@Url.Content("~/img/Amr_Atef_Resume_2025.pdf")" class="btn" target="_blank">CV</a>
             </div>
+
         </div>
 
         <div class="home-img" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000">
@@ -294,8 +298,8 @@
                 <img src="img/Index Page Vogue Wave.png">
                 <div class="hover-items">
                     <h3>Project Source</h3>
-                    <div class="icons">
-                        <a href="https://github.com/Amratef0/Vogue-Wave" target="_blank">
+                    <div style="text-decoration:none" class="icons">
+                        <a style="text-decoration:none" href="https://github.com/Amratef0/Vogue-Wave" target="_blank">
                             <i class='bx bxl-github'></i>
                         </a>
                     </div>
@@ -313,8 +317,8 @@
                 <img src="img/Index Page Burger Land.png">
                 <div class="hover-items">
                     <h3>Project Source</h3>
-                    <div class="icons">
-                        <a href="https://github.com/Amratef0/Burger-Land" target="_blank">
+                    <div style="text-decoration:none" class="icons">
+                        <a style="text-decoration:none" href="https://github.com/Amratef0/Burger-Land" target="_blank">
                             <i class='bx bxl-github'></i>
                         </a>
                     </div>
@@ -328,8 +332,8 @@
                 <img src="img/Index Page Pizza.png">
                 <div class="hover-items">
                     <h3>Project Source</h3>
-                    <div class="icons">
-                        <a href="https://github.com/Amratef0/MigaOne" target="_blank">
+                    <div style="text-decoration:none" class="icons">
+                        <a style="text-decoration:none" href="https://github.com/Amratef0/MigaOne" target="_blank">
                             <i class='bx bxl-github'></i>
                         </a>
                     </div>
@@ -362,16 +366,13 @@
 
             <div class="service-box" data-aos="fade-down-left" data-aos-delay="100" data-aos-duration="1000">
                 <div class="service-info">
-                    <h4>C++ Problem Solving Mentorship</h4>
+                    <h4>Problem Solver</h4>
                     <p>
-                        As a C++ Problem-Solving Mentor, I provide guidance and training to help individuals
-                        and teams sharpen their programming skills and master problem-solving techniques in C++.
-                        With a structured approach to tackling algorithmic challenges,
-                        I focus on improving your logical thinking, code efficiency,
-                        and understanding of core C++ concepts. Whether you're preparing for
-                        coding competitions Such as international competitions ICPC or enhancing
-                        your programming abilities, I’m here to support your growth and ensure you
-                        achieve success in your coding journey.
+                        I solve problem-solving challenges to improve my programming skills and
+                        tackle algorithmic tasks efficiently. I focus on enhancing logical thinking,
+                        writing optimized code, and mastering core programming concepts. Whether it's
+                        preparing for coding competitions such as ICPC or solving challenging problems,
+                        I actively practice and refine my abilities.
                     </p>
                 </div>
             </div>
@@ -452,10 +453,10 @@
 
     <footer class="footer">
         <div class="social">
-            <a target="_blank" href="https://www.facebook.com/zeinab5700"><i class='bx bxl-facebook'></i></a>
-            <a target="_blank" href="https://www.linkedin.com/in/zeinab-mahmoud-whale-52-hz/"><i class='bx bxl-linkedin'></i></a>
-            <a target="_blank" href="https://www.instagram.com/zeinab_mahmoud2002/"><i class='bx bxl-instagram'></i></a>
-            <a target="_blank" href="https://github.com/Zeinab-Mahmoud"><i class='bx bxl-github'></i></a>
+            <a target="_blank" href="https://www.facebook.com/amr.atef.419805?locale=ar_AR"><i class='bx bxl-facebook'></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/amratefabdullah"><i class='bx bxl-linkedin'></i></a>
+            <a target="_blank" href="https://www.instagram.com/__amratef__/?next=%2F"><i class='bx bxl-instagram'></i></a>
+            <a target="_blank" href="https://github.com/Amratef0"><i class='bx bxl-github'></i></a>
         </div>
 
         <ul class="list">
@@ -498,11 +499,23 @@
     <script>
         AOS.init();
     </script>
+    
+
     @section Scripts {
         <partial name="_ValidationScriptsPartial" />
     }
+    <script>
+        let dark = false;
 
+          document.getElementById("btnnnn").onclick = function () {
+            document.body.classList.toggle("dark-mode");
+            dark = !dark;
 
+            this.innerHTML = dark
+              ? '<i class="fa-regular fa-moon" style="color: #FFA500;"></i>'
+              : '<i class="fa-solid fa-sun" style="color: #FFD700;"></i>';
+          };
+    </script>
     <script src="/js/script.js"></script>
 </body>
 </html>
