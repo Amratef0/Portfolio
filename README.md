@@ -7,6 +7,8 @@
 
 A personal developer portfolio website built with **ASP.NET Core MVC (.NET 8)**. It showcases projects, skills, and experience, and includes a dynamic contact form that saves visitor messages to a SQL Server database through **Entity Framework Core**. Data access follows the **Repository Pattern** for a clean separation from the controllers.
 
+🌐 **Live site:** [amr-portfolio.runasp.net](https://amr-portfolio.runasp.net/)
+
 ---
 
 ## 📌 Table of Contents
@@ -34,10 +36,13 @@ A personal developer portfolio website built with **ASP.NET Core MVC (.NET 8)**.
 
 ## 🎯 Features
 
-- **Home / Hero** — introduction and personal branding section
-- **About** — skills, experience, and background
-- **Projects** — showcase of built projects
-- **Contact Form** — visitors can send messages; submissions are saved to the database through `IContactRepository`
+- **Home** — introduction, social links, and a downloadable CV
+- **Education** — university, jobs, volunteering, and internships
+- **Skills** — technical skills (languages, frontend, backend, databases, architecture, tools) and professional skills
+- **Certificates** — gallery of earned certificates
+- **Projects** — showcase of built projects with links to their source code or live sites
+- **Services** — Full Stack .NET development, API development, software engineering, and problem solving
+- **Contact** — social links and a contact form; submissions are saved to the database through `IContactRepository`
 - **Responsive Design** — mobile-friendly layout with CSS & JavaScript
 
 ---
