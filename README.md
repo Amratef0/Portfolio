@@ -1,6 +1,22 @@
 # 🧑‍💻 Portfolio Website
 
-A personal developer portfolio website built with **ASP.NET Core MVC (.NET 8)**. Showcases projects, skills, and experience with a dynamic contact form that saves messages to a SQL Server database via Entity Framework Core. The project follows the **Repository Pattern** for clean data access separation.
+![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)
+![EF Core](https://img.shields.io/badge/EF%20Core-8-512BD4)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-LocalDB%20%2F%20Express-CC2927?logo=microsoftsqlserver&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+A personal developer portfolio website built with **ASP.NET Core MVC (.NET 8)**. It showcases projects, skills, and experience, and includes a dynamic contact form that saves visitor messages to a SQL Server database through **Entity Framework Core**. Data access follows the **Repository Pattern** for a clean separation from the controllers.
+
+---
+
+## 📌 Table of Contents
+
+- [Tech Stack](#-tech-stack)
+- [Features](#-features)
+- [Architecture](#️-architecture)
+- [Project Structure](#-project-structure)
+- [Getting Started](#️-getting-started)
+- [Contributing](#-contributing)
 
 ---
 
@@ -16,17 +32,41 @@ A personal developer portfolio website built with **ASP.NET Core MVC (.NET 8)**.
 
 ---
 
+## 🎯 Features
+
+- **Home / Hero** — introduction and personal branding section
+- **About** — skills, experience, and background
+- **Projects** — showcase of built projects
+- **Contact Form** — visitors can send messages; submissions are saved to the database through `IContactRepository`
+- **Responsive Design** — mobile-friendly layout with CSS & JavaScript
+
+---
+
+## 🏗️ Architecture
+
+The project uses the **Repository Pattern** to keep data access logic separate from the controllers, and dependencies are wired through ASP.NET Core's built-in dependency injection in `Program.cs`.
+
+```
+Controller → IContactRepository → ContactRepository → DbContext (EF Core) → SQL Server
+```
+
+| Interface | Implementation |
+|---|---|
+| `IContactRepository` | `ContactRepository` |
+
+---
+
 ## 📁 Project Structure
 
 ```
 Portfolio/
-├── Controllers/          # MVC Controllers (Home, Contact...)
-├── Models/               # Entity models (Contact, ApplicationDbContext...)
+├── Controllers/          # MVC controllers (Home, Contact, ...)
+├── Models/               # Entity models (Contact, ApplicationDbContext, ...)
 ├── Views/                # Razor view templates
 ├── Interfaces/
 │   └── IContactRepository.cs   # Contact repository interface
 ├── Repositories/
-│   └── ContactRepository.cs    # Concrete contact data access implementation
+│   └── ContactRepository.cs    # Contact data access implementation
 ├── Migrations/           # EF Core database migrations
 ├── wwwroot/              # Static files (CSS, JS, images, fonts)
 ├── Properties/           # Launch settings
@@ -37,31 +77,23 @@ Portfolio/
 
 ---
 
-## ⚙️ Prerequisites
+## ⚙️ Getting Started
 
-- **Visual Studio 2022** or later
+### Prerequisites
+
+- **Visual Studio 2022** or later (or any editor with the .NET CLI)
 - **.NET 8 SDK** — [Download here](https://dotnet.microsoft.com/download/dotnet/8.0)
 - **SQL Server LocalDB** or **SQL Server Express**
 
----
-
-## 🛠️ Installation
+### 1. Clone and restore
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/Amratef0/Portfolio.git
 cd Portfolio
-```
-
-Open the solution in **Visual Studio 2022**, then restore NuGet packages automatically on build, or run:
-
-```bash
 dotnet restore
 ```
 
----
-
-## 🔧 Configuration
+### 2. Configure the connection string
 
 Update `appsettings.json` with your SQL Server connection string:
 
@@ -73,55 +105,27 @@ Update `appsettings.json` with your SQL Server connection string:
 }
 ```
 
----
+### 3. Create the database
 
-## 🗄️ Database Setup
-
-Run migrations to create the database. In **Package Manager Console** (Visual Studio):
+Run the EF Core migrations. In **Package Manager Console** (Visual Studio):
 
 ```powershell
 Update-Database
 ```
 
-Or via the .NET CLI:
+Or with the .NET CLI:
 
 ```bash
 dotnet ef database update
 ```
 
----
-
-## ▶️ Running the App
+### 4. Run the app
 
 ```bash
 dotnet run
 ```
 
-Or press **F5** in Visual Studio. The app will be available at `https://localhost:5001`.
-
----
-
-## 🎯 Features
-
-- **Home / Hero** — Introduction and personal branding section
-- **About** — Skills, experience, and background
-- **Projects** — Showcase of built projects
-- **Contact Form** — Visitors can send messages; submissions are saved to the database via `IContactRepository`
-- **Responsive Design** — Mobile-friendly layout with CSS & JavaScript
-
----
-
-## 🏗️ Architecture
-
-The project uses the **Repository Pattern** to keep data access logic separate from the controllers:
-
-```
-Controller → IContactRepository → ContactRepository → DbContext (EF Core) → SQL Server
-```
-
-| Interface | Implementation |
-|---|---|
-| `IContactRepository` | `ContactRepository` |
+Or press **F5** in Visual Studio. The app is available at `https://localhost:5001`.
 
 ---
 
